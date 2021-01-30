@@ -7,6 +7,7 @@
 
     <body>
         <script>
+            //This is a randomizer function that picks the computer's choice of rock, paper, or scissors.
             function computerPlay() {
                 let choices = [`rock`, `paper`, `scissors`];
                 let randIdx = Math.floor(Math.random() * choices.length);
@@ -15,13 +16,38 @@
             }
 
             function playRound(playerSelection, computerSelection) {
-                // Compare the two choices
-                    // Define a system for ranking the choices, possibly modulo?
-
-                // Return which choice won
-
-                // Declare the winner
+                //This calls a helper function, which determines the winner. This function then returns a winning/losing message.
+                    if ( handWinner(playerSelection, computerSelection) === playerSelection) {
+                        return `You win! ${playerSelection} beats ${computerSelection}!`;
+                    } else {
+                        return `You lose! ${computerSelection} beats ${playerSelection}!`;
+                    }
             }
+            //This function determines who actually won the round.
+            function handWinner(playerHand, computerHand) {
+                playerHand = playerHand.toLowerCase();
+                computerHand = computerHand.toLowerCase();
+
+                //This is in case the player and computer choose the same thing.
+                if (playerHand === computerHand) {
+                    return "This round was a tie.";
+                }
+
+                //This determines the winner.
+                switch(playerHand) {
+                    case `rock`: 
+                        return (computerHand === `scissors`) ? playerHand : computerHand;
+                        break;
+                    case `paper`: 
+                        return (computerHand === `rock`) ? playerHand : computerHand;
+                        break;
+                    case `scissors`: 
+                        return (computerHand === `paper`) ? playerHand : computerHand;
+                        break;
+                }
+            }
+            
+            
         </script>
     </body>
 </html>
