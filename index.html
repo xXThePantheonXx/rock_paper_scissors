@@ -46,19 +46,23 @@
             }
             
             function game() {
-                // define vars for win count for each player, total game count
+                // define vars for win count for each player
                 let playerWins = 0;
                 let computerWins = 0;
-                let gamesPlayed = 0;
-                // while or for loop that iterates over 5 games, playing each 
-                // round and tallying wins, then ending and spitting out the winner
-                // of the game and the win counts for each player
-                for something {
-                    iterate the game count up by 1
+               //IMPORTANT: Need to add functionality to where if the player doesn't pick, a losing hand will be picked for them, because that's funny. 
+                for (gamesPlayed = 0; gamesPlayed < 5; gamesPlayed ++) {
+                   // We define the computer's choice here, inside the for loop, 
+                   // rather than above, because then it'll run again for every round, 
+                   // which ensures that the computer's choice ischanging.
+                    let computerSelection = computerPlay();
+                   
+                    let playerSelection = window.prompt(
+                       `Please choose rock, paper, or scissors. If you don't pick, I'll pick for you, and trust me, you'll lose every time.`
+                    )
 
-                    ask the user for their selection
-
-                    run that against the computer selection
+                    playRound(playerSelection, computerSelection);
+                    // I need this to output a value that the game() function
+                    // recognizes, so that it'll know where to tally wins
 
                     spit out the winner of the round
 
