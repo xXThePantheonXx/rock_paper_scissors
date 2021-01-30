@@ -16,22 +16,20 @@
             }
 
             function playRound(playerSelection, computerSelection) {
-                //This calls a helper function, which determines the winner. This function then returns a winning/losing message.
-                    if ( handWinner(playerSelection, computerSelection) === playerSelection) {
+                //This calls a helper function, which determines the winner. This function then returns a winning/losing/tie message.
+                    if (playerSelection === computerSelection) {
+                        return `This round was a tie.`;
+                    } else if ( handWinner(playerSelection, computerSelection) === playerSelection ) {
                         return `You win! ${playerSelection} beats ${computerSelection}!`;
                     } else {
                         return `You lose! ${computerSelection} beats ${playerSelection}!`;
                     }
             }
+
             //This function determines who actually won the round.
             function handWinner(playerHand, computerHand) {
                 playerHand = playerHand.toLowerCase();
                 computerHand = computerHand.toLowerCase();
-
-                //This is in case the player and computer choose the same thing.
-                if (playerHand === computerHand) {
-                    return "This round was a tie.";
-                }
 
                 //This determines the winner.
                 switch(playerHand) {
@@ -47,7 +45,27 @@
                 }
             }
             
-            
+            function game() {
+                // define vars for win count for each player, total game count
+                let playerWins = 0;
+                let computerWins = 0;
+                let gamesPlayed = 0;
+                // while or for loop that iterates over 5 games, playing each 
+                // round and tallying wins, then ending and spitting out the winner
+                // of the game and the win counts for each player
+                for something {
+                    iterate the game count up by 1
+
+                    ask the user for their selection
+
+                    run that against the computer selection
+
+                    spit out the winner of the round
+
+                    spit out the wins tally and the total games count
+                }
+            }
+
         </script>
     </body>
 </html>
